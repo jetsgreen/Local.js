@@ -9,10 +9,10 @@ module.exports = function (app) {
     });
     app.post("/api/friends", function (req, res) {
         //    this grabs user's input to compare to the friends array
-        var userInput = req.body;
+        var userInput = req.body.scores;
         console.log(userInput);
         var scoresArray = [];
-        var bestMatch = 10000;
+        var bestMatch = 0;
 
         // goes through potential best friend matches   
         for (var i = 0; i < friendsArray.length; i++) {
@@ -22,7 +22,7 @@ module.exports = function (app) {
            // Math.abs returns the absoulte value of number(this elimanates the possibility of getting a negative number)
                 scoresDiff += (Math.abs(parseInt(friendsArray[i].scores[j]) - parseInt(userInput[j])));
             }
-console.log(scoresDiff)
+            console.log(scoresDiff)
             // pushes scores to scoresArray
             scoresArray.push(scoresDiff);
         }
