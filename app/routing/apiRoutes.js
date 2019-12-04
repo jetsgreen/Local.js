@@ -12,7 +12,7 @@ module.exports = function (app) {
         var userInput = req.body;
         console.log(userInput);
         var scoresArray = [];
-        var bestMatch = 0;
+        var bestMatch = 10000;
 
         // goes through potential best friend matches   
         for (var i = 0; i < friendsArray.length; i++) {
@@ -22,7 +22,7 @@ module.exports = function (app) {
            // Math.abs returns the absoulte value of number(this elimanates the possibility of getting a negative number)
                 scoresDiff += (Math.abs(parseInt(friendsArray[i].scores[j]) - parseInt(userInput[j])));
             }
-
+console.log(scoresDiff)
             // pushes scores to scoresArray
             scoresArray.push(scoresDiff);
         }
